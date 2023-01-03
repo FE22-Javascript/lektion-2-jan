@@ -11,13 +11,41 @@ btn.addEventListener('click', function() {
     let imgEl = document.querySelector('img');
     let currentImgSrc = imgEl.getAttribute('src');
 
-    if (currentImgSrc == img1) {
+    if (currentImgSrc === img1) {
         // om nuvarande bild är första bilden
         // vill vi byta till den andra istället
         imgEl.setAttribute('src', img2);
-    } else if (currentImgSrc == img2) {
+    } else if (currentImgSrc === img2) {
         imgEl.setAttribute('src', img3);
     } else {
         imgEl.setAttribute('src', img1);
     }
 });
+
+let sendButton = document.getElementById('btn');
+sendButton.addEventListener('click', function() {
+    let inputEl = document.getElementById('text-input');
+    console.log(inputEl.value);
+});
+
+// vid 'enter'-klick i input skall värdet loggas
+let inputEl = document.getElementById('text-input');
+//lägg på en eventlyssnare på inputen
+inputEl.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        console.log(inputEl.value);
+    }
+});
+
+console.log(addStuff(1, 1));
+//console.log(addStuff2(1, 1));
+
+function addStuff(num1, num2) {
+    let sum = num1 + num2;
+    return sum;
+};
+
+const addStuff2 = (num1, num2) => {
+    let sum = num1 + num2;
+    return sum;
+};
